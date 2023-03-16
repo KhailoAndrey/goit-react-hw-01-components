@@ -1,16 +1,15 @@
+import { Profile } from './Profile/Profile';
+import { StatisticList } from './Statistics/StatisticsList';
+import user from '../data/user.json';
+import data from '../data/data.json'
+
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
+    <div>
+      <Profile profile={user} />
+      <StatisticList title="Upload stats" stats={data} />
     </div>
   );
 };
+
+
