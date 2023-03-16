@@ -1,6 +1,8 @@
+import PropTypes from 'prop-types';
+
 import style from './FriendListItem.module.css';
 
-export const FriendListitem = ({ friends: { avatar, name, isOnline } }) => {
+const FriendListItem = ({ friends: { avatar, name, isOnline } }) => {
   return (
     <>
       <span className={style[`${isOnline}`]}></span>
@@ -9,3 +11,14 @@ export const FriendListitem = ({ friends: { avatar, name, isOnline } }) => {
     </>
   );
 };
+
+FriendListItem.propTypes = {
+  friends: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    avatar: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    isOnline: PropTypes.bool.isRequired,
+  }).isRequired,
+};
+
+export default FriendListItem;

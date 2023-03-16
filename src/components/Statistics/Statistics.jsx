@@ -1,6 +1,8 @@
+import PropTypes from 'prop-types';
+
 import style from './Statistics.module.css';
 
-export const Statistics = ({ data: { label, percentage } }) => {
+const Statistics = ({ data: { label, percentage } }) => {
   return (
     <>
       <span className={style.label}>{label}</span>
@@ -8,3 +10,12 @@ export const Statistics = ({ data: { label, percentage } }) => {
     </>
   );
 };
+
+Statistics.propTypes = {
+  data: PropTypes.shape({
+    label: PropTypes.string.isRequired,
+    percentage: PropTypes.number.isRequired,
+  }),
+};
+
+export default Statistics;

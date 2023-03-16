@@ -1,6 +1,8 @@
+import PropTypes from 'prop-types';
+
 import style from './TransactionHistory.module.css';
 
-export const TransactionItem = ({ item: { type, amount, currency } }) => {
+const TransactionItem = ({ item: { type, amount, currency } }) => {
   return (
     <>
       <td className={style.type}>{type}</td>
@@ -9,3 +11,16 @@ export const TransactionItem = ({ item: { type, amount, currency } }) => {
     </>
   );
 };
+
+TransactionItem.propTypes = {
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      type: PropTypes.string.isRequired,
+      amount: PropTypes.string.isRequired,
+      currency: PropTypes.string.isRequired,
+    })
+  ),
+};
+
+export default TransactionItem;

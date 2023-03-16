@@ -1,4 +1,6 @@
-import { Statistics } from './Statistics';
+import PropTypes from 'prop-types';
+
+import Statistics from './Statistics';
 import style from './Statistics.module.css';
 
 const getRandomColor = () => {
@@ -7,7 +9,7 @@ const getRandomColor = () => {
     .padStart(6, 0)}`;
 };
 
-export const StatisticList = ({ title, stats }) => {
+const StatisticList = ({ title, stats }) => {
   return (
     <section className={style.statistics}>
       {title && <h2 className={style.title}>{title}</h2>}
@@ -25,3 +27,16 @@ export const StatisticList = ({ title, stats }) => {
     </section>
   );
 };
+
+StatisticList.propTypes = {
+  title: PropTypes.string,
+  stats: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+      percentage: PropTypes.number.isRequired,
+    })
+  ).isRequired,
+};
+
+export default StatisticList;
