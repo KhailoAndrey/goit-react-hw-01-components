@@ -1,5 +1,3 @@
-// import stats from '../../data/data.json';
-
 export const Statistics = ({ data: { label, percentage } }) => {
   return (
     <>
